@@ -43,9 +43,7 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/newsScrape", {
-	useMongoClient: true
-});
+mongoose.connect("mongodb://heroku_6h7nd3j1:hrofqv1ui46a68cqcoa2i1r89h@ds125556.mlab.com:25556/heroku_6h7nd3j1");
 
 app.post("/scrape", function(req, res) {
   // First, we grab the body of the html with request
