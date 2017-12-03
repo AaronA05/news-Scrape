@@ -1,0 +1,52 @@
+<div class = "container">
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="/">Home</a></li>
+</ul>	
+
+
+	<div class = "row">
+		
+			{{#each data}}
+			<div class = "well news-stories" id='{{this._id}}'>
+				<h1> {{this.title}} </h1>
+				<p> {{this.tease}}</p>
+				<a href="{{this.link}}"> <h4>Read Story</h4> </a>
+				<button type='button' class='btn btn-primary add-note' data-toggle='modal' data-target='#myModal' data-noteID='{{this._id}}'>Leave/Edit Comment</button>
+				<button class='btn btn-success view-comment' data-id='{{this._id}}'>View Comments</button>
+				<button class='btn btn-danger remove-item' data-id='{{this._id}}'>Remove Article</button>
+			</div>		
+			{{/each}}
+	</div>
+
+</div>
+
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Leave a Comment</h4>
+        </div>
+        <div class="modal-body">
+          	<div class="form-group">
+			  	<label for="comment">Comment:</label>
+			  	<textarea class="form-control" rows="5" id="comment"></textarea>
+			</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type='button' class='btn btn-info' id="save-note">Save Note</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+

@@ -1,0 +1,32 @@
+<div class = "container">
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="/">Home</a></li>
+  <li role="presentation"><a id='scrape-now' href="#">Scape more articles</a></li>
+  <li role="presentation"><a href="/saved">Saved Articles</a></li>
+</ul>
+
+<div class = "jumbotron">
+	<h1>N.P.R. News Scraping!</h1>
+</div>
+
+	<div class = "row">
+		
+			{{#each data}}
+			<div class = "well">
+				<h1> {{this.title}} </h1>
+				<p> {{this.tease}}</p>
+				<a href="{{this.link}}" target="#"> <h4>Read Story</h4> </a>
+				{{#if saved}}
+				<h4>Articles is saved already</h4>
+				{{/if}}
+				{{#unless saved}}
+				<button class='btn btn-danger save-now' data-id='{{this._id}}'>Save Article</button>
+				{{/unless}}
+			</div>
+			{{/each}}
+	</div>
+
+</div>
+
+
